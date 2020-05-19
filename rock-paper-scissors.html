@@ -6,9 +6,40 @@
 </head>
 <body>
   <script>
-    // Your JavaScript goes here!
-    let username = "jacotaco"
-    console.log(username)
+    function computerPlay() {
+      let move = Math.floor(Math.random() * 3) + 1;
+      if (move === 1) {
+        return 'rock';
+      } else if (move === 2) {
+        return 'paper';
+      } else if (move === 3) {
+        return 'scissors'
+      }
+    }
+    function game() {
+    function playRound(playerSelection, computerSelection) {
+if (playerSelection === computerSelection) {
+  return 'It\'s a tie!';
+} else if (
+  (playerSelection === 'rock' && computerSelection === 'scissors')
+||(playerSelection === 'paper' && computerSelection === 'rock')
+||(playerSelection === 'scissors' && computerSelection === 'paper')) {
+  return 'You win!'
+} else {
+  return 'You lose!'
+}
+    }
+
+    const playerSelection = prompt('Rock, paper, or scissors?').toLowerCase();
+    const computerSelection = computerPlay()
+    console.log('Computer: ' + computerSelection, '\n\You: ' + playerSelection)
+    console.log(playRound(playerSelection, computerSelection))
+  }
+
+  let gameCounter;
+  for (gameCounter = 5; gameCounter > 0; gameCounter--) {
+    game();
+  }
   </script>
 </body>
 </html>
